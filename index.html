@@ -3,60 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <title>Snake</title>
   </head>
   <body>
-     <div class="container">
-         <canvas id="canvas" style="border: 1px solid #000000"></canvas>
-         <img src="\static/images/1.jpg" style="width: 600px;" alt="">
-     </div> 
-    
+    <header>
+      <div class="logo">Logo<span>.</span></div>
+    </header>
+    <div class="select">
+      <div class="color">
+        <label for="color">Select Color</label>
+        <input value="#ff0000" type="color" name="color" id="color" class="colorInput" />
+      </div>
+      <div class="time">
+        <label for="duration">Duration</label>
+        <input value="5" type="number" name="duration" id="duration" class="duration" />
+        ms
+      </div>
+    </div>
+    <main>
+      <div class="container">
+        <canvas id="canvas" style="border: 1px solid #000000"></canvas>
+        <img src="\static/images/1.jpg" style="width: 600px" alt="" />
+      </div>
+    </main>
+    <div class="button">
+      <button onclick="createSnake()">Start</button>
+    </div>
   </body>
   <script src="static/js/app.js"></script>
-  <!-- <script>
-    var canvas;
-    var context;
-
-    var canvas = document.querySelector("#canvas");
-    var context = canvas.getContext("2d");
-    const image = new Image();
-    image.src = "./static/images/1.jpg";
-    image.onload = () => {
-      context.drawImage(image, 0, 0);
-    };
-    image.width = "300";
-    image.height = "300";
-    canvas.width = image.width;
-    canvas.height = image.height;
-    var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    image.data = new Uint8ClampedArray(); // WRONG
-    console.log(image.data);
-    image.data[1] = 0;
-
-    // Use a button to trigger the "effect"
-    var button = document.getElementsByTagName("Button");
-
-    function changeToWhite(data) {
-      console.log(data.length);
-      for (var i = 0; i < data.length; i++) {
-        data[i] = 125;
-      }
-    }
-
-    function onClick() {
-      let topLeft = 0, topRight = 0, bottomRight = 1, bottomLeft = 1, row = 1 , col =1;
-
-      setInterval(() => {
-        var imageData = context.getImageData(topLeft, topRight, bottomRight, bottomLeft);
-        changeToWhite(imageData.data);
-        // Update the canvas with the new data
-        context.putImageData(imageData, 0, 0);
-        if (col < 200) {
-            bottomRight++;
-            col++;
-        }
-      }, 10);
-    }
-  </script> -->
 </html>
